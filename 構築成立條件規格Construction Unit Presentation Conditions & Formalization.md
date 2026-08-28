@@ -36,15 +36,3 @@ Construction Framework v1.1
 │
 └── 4. Event Agent
 ```
-
-這個名字還有一個好處：**不會過早宣稱你已經證明它有效。**
-
-`Architecture` 比 `Engine`、`System`、`Protocol` 保守，也比較符合你現在「這是一個已經形成結構、但還需要驗證性能與實用性的架構假設」的狀態。
-
-另外，我會把版本語意也固定下來：
-
-**v1.0**：原始 Construction Framework  
-**v1.1**：加入 Pre-Computational Localization 的結構版  
-**v1.2+**：等實際 routing、graph retrieval、validation benchmark 有結果後再升
-
-這樣你現在就可以安心拿 `v1.1` 當作對外討論與比較的基準版本，不必再一直改名稱。
