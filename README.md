@@ -4,6 +4,21 @@
 
 ---
 
+## 👥 Who Should Care
+
+### You work on:
+- **LLM Systems** → RAG, multi-turn dialogue, tool authorization
+- **AI Governance** → Policy, compliance, audit trails  
+- **Enterprise AI** → Permission systems, content moderation, qualification logic
+
+### Your pain point is:
+> "AI systems make decisions about what qualifies to enter a rule space, but we can't see or audit how."
+
+### CEGS helps by:
+Making those decisions **explicit, traceable, and human-revisable**.
+
+---
+
 ## 🎯 What This Is
 
 **CEGS** is a framework for understanding how **Qualification** — the problem of "what has the right to enter a particular rule space" — works in AI systems and human institutions.
@@ -12,73 +27,6 @@ Rather than proposing to *solve* qualification, CEGS provides infrastructure to 
 - **Explicit** (not hidden in black boxes)
 - **Auditable** (traceable to source)
 - **Revisable** (modifiable by humans)
-
----
-
-## ⚠️ Critical Design Principle
-
-> Construction is not meant to automate qualification decisions.  
-> It exists to make qualification decisions transparent, traceable, and controllable by humans.
-
-### What CEGS Can Do
-
-✅ **Mechanism Layer**
-- Explicitly represent "a qualification judgment has been made"
-- Track how qualification dependencies propagate
-- Record who made the judgment and when
-- Verify whether conditions for qualification are actually satisfied
-
-### What CEGS Cannot Do (and should not)
-
-❌ **Value Layer**
-- Decide what *should* become a qualification condition
-- Decide *who* has the right to set conditions
-- Resolve conflicts between competing qualification standards
-- Determine whether a qualification change is "fair"
-
----
-
-## 🚨 The Core Governance Problem
-
-### Self-Qualification Risk
-
-If a qualification-rule-maker uses rules *they created* to grant themselves qualification:
-
-```
-C → R → Qualify(C)
-
-"The rule creator can declare themselves qualified via their own rules"
-```
-
-This is not automatically illegal. But it **must be visible and controllable by humans**.
-
-#### Example: Content Moderation AI
-
-```
-AI creates moderation rule: "word X → delete post"
-AI applies rule to its own internal logs: "passes moderation"
-AI therefore qualifies to moderate user content
-
-CEGS can expose: ✓ Who made the rule? Who benefits? What changed?
-CEGS cannot decide: ✗ Should this be allowed? Is it fair?
-```
-
-**Only humans can answer that.**
-
----
-
-## 📋 Qualification Layers & Responsibility
-
-| Layer | Content | Who Decides |
-|-------|---------|-------------|
-| **Mechanism** | How qualification is computed, tracked, propagated | System architecture (technical) |
-| **Standard** | What conditions grant qualification | **Humans** |
-| **Authority** | Who has the right to set those conditions | **Humans** |
-| **Conflict** | When standards conflict, which wins | **Humans** |
-| **Change** | Whether standards should change | **Humans** |
-| **Responsibility** | Who is accountable if qualification causes harm | **Humans / Institutions** |
-
-CEGS operates only in the **Mechanism** layer. Everything else is human territory.
 
 ---
 
@@ -118,6 +66,73 @@ Human Review / Decision
   - Are prerequisites satisfied?
   - Do dependent conditions hold?
 - System executes or refuses based on human-defined rules
+
+---
+
+## ⚠️ Critical Design Principle
+
+> Construction is not meant to automate qualification decisions.  
+> It exists to make qualification decisions transparent, traceable, and controllable by humans.
+
+### What CEGS Can Do
+
+✅ **Mechanism Layer**
+- Explicitly represent "a qualification judgment has been made"
+- Track how qualification dependencies propagate
+- Record who made the judgment and when
+- Verify whether conditions for qualification are actually satisfied
+
+### What CEGS Cannot Do (and should not)
+
+❌ **Value Layer**
+- Decide what *should* become a qualification condition
+- Decide *who* has the right to set conditions
+- Resolve conflicts between competing qualification standards
+- Determine whether a qualification change is "fair"
+
+---
+
+## 📋 Qualification Layers & Responsibility
+
+| Layer | Content | Who Decides |
+|-------|---------|-------------|
+| **Mechanism** | How qualification is computed, tracked, propagated | System architecture (technical) |
+| **Standard** | What conditions grant qualification | **Humans** |
+| **Authority** | Who has the right to set those conditions | **Humans** |
+| **Conflict** | When standards conflict, which wins | **Humans** |
+| **Change** | Whether standards should change | **Humans** |
+| **Responsibility** | Who is accountable if qualification causes harm | **Humans / Institutions** |
+
+CEGS operates only in the **Mechanism** layer. Everything else is human territory.
+
+---
+
+## 🚨 The Core Governance Problem
+
+### Self-Qualification Risk
+
+If a qualification-rule-maker uses rules *they created* to grant themselves qualification:
+
+```
+C → R → Qualify(C)
+
+"The rule creator can declare themselves qualified via their own rules"
+```
+
+This is not automatically illegal. But it **must be visible and controllable by humans**.
+
+#### Example: Content Moderation AI
+
+```
+AI creates moderation rule: "word X → delete post"
+AI applies rule to its own internal logs: "passes moderation"
+AI therefore qualifies to moderate user content
+
+CEGS can expose: ✓ Who made the rule? Who benefits? What changed?
+CEGS cannot decide: ✗ Should this be allowed? Is it fair?
+```
+
+**Only humans can answer that.**
 
 ---
 
@@ -169,6 +184,27 @@ This repository contains:
 - `構築計算空間規格.md` — Formalization + Python implementation  
 - `構築單位呈現條件與形式化研究.md` — Motivation for Construction Tokens
 - `construction_lab/` — Runnable experiments
+- `資格論.md` — Philosophical grounding in qualification theory
+
+---
+
+## 🧪 Try It Out
+
+The `construction_lab/` directory contains working implementations of both theoretical and experimental approaches:
+
+```bash
+# View Stage 0 token efficiency experiments
+python construction_lab/stage0_token_count.py
+
+# Run Stage 1 semantic correctness evaluation
+python construction_lab/stage1_evaluator.py
+
+# Inspect baseline vs construction representations
+python construction_lab/baseline_representation.py
+python construction_lab/construction_representation.py
+```
+
+See `construction_lab/START_HERE.txt` and `construction_lab/START_HERE_STAGE1.txt` for guided walks through experiments.
 
 ---
 
@@ -178,3 +214,10 @@ This research is a collaborative investigation into qualification structures in 
 
 **Important**: Do not deploy any CEGS-based system that treats its outputs as "objective" or "bias-free". All qualification decisions must be human-reviewable and human-revisable.
 
+---
+
+## 📧 Questions?
+
+For questions about the framework, experimental results, or potential applications, please open an issue or start a discussion.
+
+For Chinese-language questions: 本研究使用中文撰寫，歡迎提出中文議題或討論。
