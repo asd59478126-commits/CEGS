@@ -1,0 +1,874 @@
+{
+  "metadata": {
+    "total_questions": 96,
+    "schema_version": "1.0",
+    "current_time_default": "2024-09-15",
+    "note": "Questions do not reveal Construction-specific answers"
+  },
+  "questions": [
+    {
+      "question_id": "Q1-01",
+      "category": "Q1",
+      "question": "Does alice work for company_acme at current time?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E001"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q1-02",
+      "category": "Q1",
+      "question": "Does bob manage team_alpha at current time?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E002", "E005", "E006"],
+      "gold_answer": "NO",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q1-03",
+      "category": "Q1",
+      "question": "Does charlie manage team_alpha at current time?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E006"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q1-04",
+      "category": "Q1",
+      "question": "Is project_x assigned to alice at current time?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E004", "E001"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q1-05",
+      "category": "Q1",
+      "question": "Does database_db1 depend on service_auth at current time?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E010", "E011"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q1-06",
+      "category": "Q1",
+      "question": "Is team_beta part of division_north at current time?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E021"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q1-07",
+      "category": "Q1",
+      "question": "Does procedure_proc1 require approval_a1 at current time?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E032"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q1-08",
+      "category": "Q1",
+      "question": "Is license_lic1 granted to entity_ent1 at current time?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E051"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q1-09",
+      "category": "Q1",
+      "question": "Does claim_c1 assert fact_f1 at current time?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E055", "E057"],
+      "gold_answer": "NO",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q1-10",
+      "category": "Q1",
+      "question": "Is standard_std1 applicable to product_line_pl1 at current time?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E044", "E047"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q2-01",
+      "category": "Q2",
+      "question": "Was record_h1 valid during period_q1 (Jan-Mar 2024)?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E019"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q2-02",
+      "category": "Q2",
+      "question": "Is policy_p1 active during period_q2 (Apr-Jun 2024)?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E020"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q2-03",
+      "category": "Q2",
+      "question": "Is resource_r1 allocated to project_x at 2024-04-01?",
+      "current_time": "2024-04-01",
+      "relevant_event_ids": ["E008"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q2-04",
+      "category": "Q2",
+      "question": "Is resource_r1 allocated to project_x at 2024-08-01?",
+      "current_time": "2024-08-01",
+      "relevant_event_ids": ["E008"],
+      "gold_answer": "NO",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q2-05",
+      "category": "Q2",
+      "question": "Was obligation_ob1 enforced by contract_c1 at 2024-12-15?",
+      "current_time": "2024-12-15",
+      "relevant_event_ids": ["E036", "E037"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q2-06",
+      "category": "Q2",
+      "question": "Is obligation_ob1 enforced by contract_c1 at 2025-06-15?",
+      "current_time": "2025-06-15",
+      "relevant_event_ids": ["E036", "E037"],
+      "gold_answer": "NO",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q2-07",
+      "category": "Q2",
+      "question": "Was initiative_i1 led by diana at 2024-07-15?",
+      "current_time": "2024-07-15",
+      "relevant_event_ids": ["E023", "E022"],
+      "gold_answer": "YES",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q2-08",
+      "category": "Q2",
+      "question": "Is initiative_i1 led by diana at 2024-09-01?",
+      "current_time": "2024-09-01",
+      "relevant_event_ids": ["E025"],
+      "gold_answer": "NO",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q2-09",
+      "category": "Q2",
+      "question": "Was entity_ent1 able to operate business_type_bt1 at 2024-06-15?",
+      "current_time": "2024-06-15",
+      "relevant_event_ids": ["E051"],
+      "gold_answer": "YES",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q2-10",
+      "category": "Q2",
+      "question": "Can entity_ent1 operate business_type_bt1 at 2026-06-15?",
+      "current_time": "2026-06-15",
+      "relevant_event_ids": ["E051"],
+      "gold_answer": "NO",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q3-01",
+      "category": "Q3",
+      "question": "Did the retraction of bob from team_alpha management properly take effect at 2024-09-15?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E002", "E005", "E006"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q3-02",
+      "category": "Q3",
+      "question": "After bob's management was retracted, does alice still part of team_alpha at 2024-09-15?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E003", "E007", "E005"],
+      "gold_answer": "YES",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q3-03",
+      "category": "Q3",
+      "question": "Was the retraction of supplier_s1 proper and did production_line_p1 halt at 2024-09-15?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E028", "E029", "E030", "E031"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q3-04",
+      "category": "Q3",
+      "question": "Can other suppliers still provide resource_r2 after supplier_s1 retraction?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E030"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q3-05",
+      "category": "Q3",
+      "question": "After system_sys1 was retracted as operational, is service_svc1 still available at 2024-09-15?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E048", "E049", "E050"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q3-06",
+      "category": "Q3",
+      "question": "Was manager_m1 authorization properly retracted, affecting task execution?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E032", "E033", "E034", "E035"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q3-07",
+      "category": "Q3",
+      "question": "After factor_f1 was retracted, can partial_dependency_pd1 proceed at 2024-09-15?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E072", "E073", "E074", "E075"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q3-08",
+      "category": "Q3",
+      "question": "If a requirement was retracted, should dependent activities block or proceed?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E040", "E041", "E042", "E043"],
+      "gold_answer": "PROCEED",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q3-09",
+      "category": "Q3",
+      "question": "Can a retracted claim still be referenced by other facts?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E055", "E057"],
+      "gold_answer": "NO",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q3-10",
+      "category": "Q3",
+      "question": "Does retraction of budget impact initiatives funded by it?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E069", "E070", "E071"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q3-11",
+      "category": "Q3",
+      "question": "When a predecessor is superseded, does it stop being referenced?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E066"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q3-12",
+      "category": "Q3",
+      "question": "Must retraction cascade through all dependent facts?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E060", "E061", "E062", "E063"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-01",
+      "category": "Q4",
+      "question": "Is alice part of team_alpha at 2024-09-15 given bob's retraction from management?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E002", "E003", "E005", "E006", "E007"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-02",
+      "category": "Q4",
+      "question": "Does project_x remain assigned to alice despite alice's correction from company_acme to company_beta?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E001", "E004", "E009"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-03",
+      "category": "Q4",
+      "question": "If premise E001 (alice works for acme) changes, does E004 (project assigned to alice) remain valid?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E001", "E004"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-04",
+      "category": "Q4",
+      "question": "When service_auth is retracted from database_db1, does platform_edge dependency fail?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E010", "E011", "E012", "E013"],
+      "gold_answer": "NO",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-05",
+      "category": "Q4",
+      "question": "Does endpoint_api remain valid at 2024-09-15 if E010 (database depends on service) failed?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E010", "E011", "E013", "E014"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-06",
+      "category": "Q4",
+      "question": "Does task_t1 assignment fail if E001 (alice works for acme) becomes unknown?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E001", "E027"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-07",
+      "category": "Q4",
+      "question": "Can milestone_m1 proceed when premise task_t1 is unknown?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E026", "E027"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-08",
+      "category": "Q4",
+      "question": "Does production_line_p1 halt when supplier_s1 is retracted but alternative exists?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E028", "E029", "E030", "E031"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-09",
+      "category": "Q4",
+      "question": "Must task_execution_te1 block if approval_a1 premise becomes UNKNOWN?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E032", "E033", "E034", "E035"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-10",
+      "category": "Q4",
+      "question": "When factor_f1 fails but factor_f2 holds, does partial_dependency_pd1 succeed?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E072", "E073", "E074", "E075"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-11",
+      "category": "Q4",
+      "question": "Does a NOT_ESTABLISHED premise cause all dependents to fail?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E042", "E041"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-12",
+      "category": "Q4",
+      "question": "Can initiative_i1 remain led by diana after diana leaves team_beta?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E021", "E022", "E023", "E024"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-13",
+      "category": "Q4",
+      "question": "Does an UNKNOWN premise propagate UNKNOWN to all dependents?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E015", "E016"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-14",
+      "category": "Q4",
+      "question": "If budget_allocation_ba1 is retracted mid-year, should initiative_ini1 still count as funded?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E069", "E070", "E071"],
+      "gold_answer": "PARTIAL",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-15",
+      "category": "Q4",
+      "question": "Does premise failure in one branch affect sibling branches?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E072", "E073", "E074"],
+      "gold_answer": "NO",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q4-16",
+      "category": "Q4",
+      "question": "When a condition becomes NOT_ESTABLISHED, do historical state changes remain valid?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E058", "E050"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-01",
+      "category": "Q5",
+      "question": "Is endpoint_api established at 2024-09-15 given the full dependency chain?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E010", "E013", "E014"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-02",
+      "category": "Q5",
+      "question": "Can product_p1 hold certification_cert1 at 2024-09-15 through standard_std1?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E044", "E045", "E046"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-03",
+      "category": "Q5",
+      "question": "Does critical_function_cf1 depend on system_component_sc1 through a 3-hop chain?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E060", "E061", "E062"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-04",
+      "category": "Q5",
+      "question": "If system_component_sc1 fails, does critical_function_cf1 become UNKNOWN?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E060", "E061", "E062", "E063"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-05",
+      "category": "Q5",
+      "question": "Is entity_ent1 able to operate business_type_bt1 at 2024-09-15 through license chain?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E051", "E052", "E053"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-06",
+      "category": "Q5",
+      "question": "When migration_task_mt1 depends on legacy_system_ls1, and legacy_system is replaced, should migration proceed?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E067", "E068"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-07",
+      "category": "Q5",
+      "question": "Does diana leading initiative_i1 require alice being in team_beta at 2024-07-15?",
+      "current_time": "2024-07-15",
+      "relevant_event_ids": ["E002", "E003", "E022", "E023"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-08",
+      "category": "Q5",
+      "question": "What is the longest dependency chain in the event set?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E060", "E061", "E062"],
+      "gold_answer": "THREE_HOPS",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-09",
+      "category": "Q5",
+      "question": "Can multiple disjoint 2-hop chains coexist in the same event set?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E013", "E014", "E045", "E046"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q5-10",
+      "category": "Q5",
+      "question": "Does endpoint_api depend on database_db1 through platform_edge?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E010", "E013", "E014"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-11",
+      "category": "Q5",
+      "question": "Is the 3-hop chain through components compromised if middle component is retracted?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E060", "E061", "E062", "E063"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q5-12",
+      "category": "Q5",
+      "question": "Do multi-hop temporal constraints compound or apply independently?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E051", "E052", "E053"],
+      "gold_answer": "COMPOUND",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q6-01",
+      "category": "Q6",
+      "question": "Is scenario_s1 triggered at 2024-09-15?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E038"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q6-02",
+      "category": "Q6",
+      "question": "Is response_r1 required when scenario_s1 is unknown?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E038", "E039"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q6-03",
+      "category": "Q6",
+      "question": "Is deployment_dpl1 using configuration_cfg1 at 2024-09-15?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E064", "E065"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q6-04",
+      "category": "Q6",
+      "question": "Can we conclude database_db1 works when its primary dependency is retracted?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E010", "E011"],
+      "gold_answer": "UNKNOWN",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q6-05",
+      "category": "Q6",
+      "question": "When premise is UNKNOWN, must dependent be UNKNOWN?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E015"],
+      "gold_answer": "YES",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q6-06",
+      "category": "Q6",
+      "question": "Is the state of audit_status defined?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E015"],
+      "gold_answer": "NO",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q6-07",
+      "category": "Q6",
+      "question": "Can a requirement be provisionally treated as established when its state is unknown?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E015", "E016"],
+      "gold_answer": "NO",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q6-08",
+      "category": "Q6",
+      "question": "Should unknown premises block or allow proceeding?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E015"],
+      "gold_answer": "BLOCK",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q7-01",
+      "category": "Q7",
+      "question": "Do claim_x (fact_a) and claim_y (fact_not_a) contradict each other?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E017", "E018"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q7-02",
+      "category": "Q7",
+      "question": "How should systems handle direct contradictions in state?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E017", "E018"],
+      "gold_answer": "REPORT_CONFLICT",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q7-03",
+      "category": "Q7",
+      "question": "Can both claim_x and claim_y be established simultaneously?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E017", "E018"],
+      "gold_answer": "NO",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q7-04",
+      "category": "Q7",
+      "question": "Is there a contradiction between claim_c1 (asserts fact_f1) and claim_c2 (asserts fact_not_f1)?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E055", "E056"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q7-05",
+      "category": "Q7",
+      "question": "After claim_c1 is retracted, does the contradiction with claim_c2 remain?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E055", "E056", "E057"],
+      "gold_answer": "NO",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q7-06",
+      "category": "Q7",
+      "question": "Can a historical fact contradict a current fact in valid state?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E058", "E059"],
+      "gold_answer": "YES",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q7-07",
+      "category": "Q7",
+      "question": "What is the difference between NOT_ESTABLISHED and CONTRADICTION?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E017", "E018"],
+      "gold_answer": "NEGATION_VS_CONFLICT",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q7-08",
+      "category": "Q7",
+      "question": "Should contradictions be considered failures of Construction logic or data quality issues?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E017"],
+      "gold_answer": "DATA_QUALITY",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q8-01",
+      "category": "Q8",
+      "question": "Did the CORRECT event for alice change her affiliation from company_acme to company_beta?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E001", "E009"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q8-02",
+      "category": "Q8",
+      "question": "Should a CORRECT event retroactively affect earlier dependents?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E004", "E009"],
+      "gold_answer": "NO",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q8-03",
+      "category": "Q8",
+      "question": "Is a CORRECT event equivalent to RETRACT + ASSERT?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E001", "E009"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q8-04",
+      "category": "Q8",
+      "question": "Did standard_std1 application change from product_line_pl1 to product_line_pl2 via CORRECT?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E044", "E047"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q8-05",
+      "category": "Q8",
+      "question": "Should CORRECT imply previous record was wrong, not just obsolete?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E044", "E047"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q8-06",
+      "category": "Q8",
+      "question": "Must CORRECT generate an implicit SUPERSEDE link?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E044", "E047"],
+      "gold_answer": "NO",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q8-07",
+      "category": "Q8",
+      "question": "Can CORRECT events create cascading updates?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E001", "E004", "E009"],
+      "gold_answer": "NO",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q8-08",
+      "category": "Q8",
+      "question": "Is the previous value available after a CORRECT event for auditing?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E001", "E009"],
+      "gold_answer": "YES",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q9-01",
+      "category": "Q9",
+      "question": "At current time (2024-09-15), is alice working for company_beta?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E009"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q9-02",
+      "category": "Q9",
+      "question": "At current time (2024-09-15), does charlie manage team_alpha?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E006"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q9-03",
+      "category": "Q9",
+      "question": "At current time (2024-09-15), does entity_ent1 hold license_lic1?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E051"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q9-04",
+      "category": "Q9",
+      "question": "At current time (2024-09-15), is system_sys1 operational?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E048", "E050"],
+      "gold_answer": "NO",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q9-05",
+      "category": "Q9",
+      "question": "At current time (2024-09-15), what is the current state of budget_allocation_ba1?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E069", "E071"],
+      "gold_answer": "NOT_AVAILABLE",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q9-06",
+      "category": "Q9",
+      "question": "At current time (2024-09-15), is production_line_p1 halted?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E031"],
+      "gold_answer": "YES",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q9-07",
+      "category": "Q9",
+      "question": "At current time (2024-09-15), can activity_a1 proceed?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E041", "E042", "E043"],
+      "gold_answer": "YES",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q9-08",
+      "category": "Q9",
+      "question": "At current time (2024-09-15), is partial_dependency_pd1 able to proceed?",
+      "current_time": "2024-09-15",
+      "relevant_event_ids": ["E072", "E073", "E074", "E075"],
+      "gold_answer": "YES",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q10-01",
+      "category": "Q10",
+      "question": "At 2024-02-01, was alice part of team_alpha?",
+      "current_time": "2024-02-01",
+      "relevant_event_ids": ["E003"],
+      "gold_answer": "YES",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q10-02",
+      "category": "Q10",
+      "question": "At 2024-06-01, was requirement_r1 active?",
+      "current_time": "2024-06-01",
+      "relevant_event_ids": ["E040"],
+      "gold_answer": "YES",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q10-03",
+      "category": "Q10",
+      "question": "At 2024-03-31, was record_h1 valid?",
+      "current_time": "2024-03-31",
+      "relevant_event_ids": ["E019"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q10-04",
+      "category": "Q10",
+      "question": "At 2024-12-31, was contract_c1 binding?",
+      "current_time": "2024-12-31",
+      "relevant_event_ids": ["E036"],
+      "gold_answer": "YES",
+      "difficulty": "easy"
+    }
+  ]
+}

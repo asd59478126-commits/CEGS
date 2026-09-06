@@ -1,0 +1,13 @@
+把整個 construction_lab 資料夾放到桌面或你要做研究的資料夾。
+
+在 Claude Code / 終端機進入這個資料夾後，把 CLAUDE_TASK.md 的內容交給 Claude Code。
+
+建議第一個命令：
+python stage0_token_count.py
+
+然後由 Claude Code 依 CLAUDE_TASK.md 繼續執行：
+python stage0_token_count.py --hf Qwen/Qwen2.5-7B
+python stage0_token_count.py --lang en
+python cpu_ct_benchmark.py
+
+不要把外層建立檔案的 Python 產生器貼進這些 .py 檔。

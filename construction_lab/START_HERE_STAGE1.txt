@@ -1,0 +1,8 @@
+Construction Stage 1
+
+請在 Claude Code 中開啟這個資料夾。
+
+先讀：
+CLAUDE_STAGE1_TASK.md
+
+再依該檔案執行。不要自己改研究門檻，不要把 LLM extraction 放進 Stage 1。
