@@ -1,91 +1,180 @@
-# CEGS
+# CEGS: Constrained Event Generation Space
+
 結構化 Token 之作用、最低使用條件、形式化基礎與工程路線
 
+---
 
-Construction 可以做的：
-✅ 机制层
+## 🎯 What This Is
 
-明确表示「资格判定」
-追踪「依赖传播」
-记录「谁做的判定」
-检验「条件是否成立」
-但不能做的：
-❌ 价值层
+**CEGS** is a framework for understanding how **Qualification** — the problem of "what has the right to enter a particular rule space" — works in AI systems and human institutions.
 
-决定什麼值得成为资格条件
-决定谁有权建立这些条件
-决定在冲突时选择哪个资格
-决定资格的改变是否公平
-🔴 最尖锐的部分
-你在第 15-16 章写的：
+Rather than proposing to *solve* qualification, CEGS provides infrastructure to make qualification decisions:
+- **Explicit** (not hidden in black boxes)
+- **Auditable** (traceable to source)
+- **Revisable** (modifiable by humans)
 
+---
 
-如果：
+## ⚠️ Critical Design Principle
+
+> Construction is not meant to automate qualification decisions.  
+> It exists to make qualification decisions transparent, traceable, and controllable by humans.
+
+### What CEGS Can Do
+
+✅ **Mechanism Layer**
+- Explicitly represent "a qualification judgment has been made"
+- Track how qualification dependencies propagate
+- Record who made the judgment and when
+- Verify whether conditions for qualification are actually satisfied
+
+### What CEGS Cannot Do (and should not)
+
+❌ **Value Layer**
+- Decide what *should* become a qualification condition
+- Decide *who* has the right to set conditions
+- Resolve conflicts between competing qualification standards
+- Determine whether a qualification change is "fair"
+
+---
+
+## 🚨 The Core Governance Problem
+
+### Self-Qualification Risk
+
+If a qualification-rule-maker uses rules *they created* to grant themselves qualification:
+
+```
 C → R → Qualify(C)
 
-即：资格制定者是否可以透过自己制定的资格结构取得自己的资格？
+"The rule creator can declare themselves qualified via their own rules"
+```
 
-这不是自动判定为非法。
-但它构成一个非常明确的治理问题。
-这正好说明了：
+This is not automatically illegal. But it **must be visible and controllable by humans**.
 
-✓ 你的框架可以识别这个问题
-✗ 但不能决定如何解决
-例如：
+#### Example: Content Moderation AI
 
-一个内容审核 AI 制定了审核规则
-然后用这个规则给自己「审核通过」的资格
-你的 Construction 可以证明这发生了
-但谁来决定这是否可以接受？ → 只能是人类
-💡 这其实是你的理论最强的地方
-不是「解决问题」，而是「暴露问题，让人类无法回避」。
+```
+AI creates moderation rule: "word X → delete post"
+AI applies rule to its own internal logs: "passes moderation"
+AI therefore qualifies to moderate user content
 
-例子 1：医疗诊断 AI
-Code
-AI 诊断规则：「血糖 > 200 → 糖尿病」
-病人血糖 = 201
-诊断 = 「糖尿病」（资格成立）
+CEGS can expose: ✓ Who made the rule? Who benefits? What changed?
+CEGS cannot decide: ✗ Should this be allowed? Is it fair?
+```
 
-【问题】这个规则本身由谁制定？
-【Construction 的作用】明确标记：Rule_Creator = 医生团队
-【谁决定】医生是否有资格制定这个规则 → 医学委员会或监管机构
-例子 2：AI 内容审核
-Code
-审核规则：「某词汇 → 删除」
-用户帖子包含该词汇
-帖子被删除（资格不成立）
+**Only humans can answer that.**
 
-【问题】这个规则对不对？会不会冤枉人？
-【Construction 的作用】清晰记录：
-  - 谁建立的规则
-  - 基於什麼条件
-  - 导致什麼结果
-【谁决定】是否应该改规则 → 内容政策委员会或法院
-⚠️ 这也暴露了一个风险
-如果你的 Construction 系统被错误地部署：
+---
 
-Code
-❌ 错误用法：
-「我用 Construction 框架自动执行资格判定，
- 所以系统是'客观的'、'没有偏见的'。」
+## 📋 Qualification Layers & Responsibility
 
-✅ 正确用法：
-「我用 Construction 框架**明确记录**资格如何判定，
- 这样人类可以看到、审查、改变这些判定。」
-这是个 critical 的设计原则。
+| Layer | Content | Who Decides |
+|-------|---------|-------------|
+| **Mechanism** | How qualification is computed, tracked, propagated | System architecture (technical) |
+| **Standard** | What conditions grant qualification | **Humans** |
+| **Authority** | Who has the right to set those conditions | **Humans** |
+| **Conflict** | When standards conflict, which wins | **Humans** |
+| **Change** | Whether standards should change | **Humans** |
+| **Responsibility** | Who is accountable if qualification causes harm | **Humans / Institutions** |
 
-🎯 所以你的问题「这个得给人类决定对吧?」的完整答案是
-层级	内容	谁决定
-机制	资格如何被判定、传播、记录	Construction 系统设计（技术决定）
-标准	什麼条件能取得资格	人类
-权限	谁有权制定这些条件	人类
-冲突	多个资格条件冲突时选哪个	人类
-改变	资格是否应该改变	人类
-责任	如果资格判定导致伤害	人类/制度
-你的 Construction 只能操纵前两列。后面都是人类的领地。
+CEGS operates only in the **Mechanism** layer. Everything else is human territory.
 
-📌 最后的建议
-这个理论发表或推广，最重要的一句话是：
+---
 
-Construction 不是要自动化资格判定，而是要让资格判定过程变得 可审查、可追溯、可修改——这样人类才能真正控制它。
+## 💡 Where CEGS Actually Helps
+
+CEGS is most useful **between** AI computation and human decision-making:
+
+```
+Input
+  ↓
+【Qualification Check】← Does this have the right to proceed?
+  ↓
+[AI Processing]
+  ↓
+【Qualification Check】← Does this output have the right to be used?
+  ↓
+Human Review / Decision
+```
+
+### Real-World Use Cases
+
+**1. Retrieval-Augmented Generation (RAG)**
+- Explicitly mark: "Does this source document qualify for the context window?"
+- Let humans set the qualification rules
+- Audit which documents were included/excluded and why
+
+**2. Multi-Turn Dialogue State Management**
+- Track: "Does this previous turn's answer qualify to be treated as 'established'?"
+- Condition: depends on whether safety checks passed, facts verified, etc.
+- If a premise fails, propagate the failure forward
+- Let humans review the state at each turn
+
+**3. Tool Execution Authorization**
+- LLM outputs: "Call delete_user_account()"
+- CEGS checks: Does this action have qualification?
+  - Does AI have permission?
+  - Are prerequisites satisfied?
+  - Do dependent conditions hold?
+- System executes or refuses based on human-defined rules
+
+---
+
+## 🔬 Research Status
+
+This repository contains:
+
+- **Theoretical Framework** (`construction-framework.md`) — core concepts of invariants, alignment, narrative chains
+- **Formalization** (`構築計算空間規格.md`) — mathematical definitions with Python implementation
+- **Experiment Lab** (`construction_lab/`) — Stage 0 (token efficiency) and Stage 1 (semantic correctness) benchmarks
+
+### Current Findings
+
+- ✅ Correspondence → Symmetry → Alignment → Qualification chain is conceptually sound
+- ✅ Qualification can be separated from Application Context
+- ✅ AI systems already execute qualification-like behaviors (implicitly)
+- ⚠️ **Whether this reduces token consumption, improves correctness, or scales to real systems still requires external verification**
+
+---
+
+## 📌 The One-Sentence Summary
+
+> **Qualification decisions exist in all systems (human and AI). CEGS makes them visible so humans can review, audit, and change them. It doesn't replace human judgment — it enables it.**
+
+---
+
+## 🚫 What CEGS Is NOT
+
+- ❌ A replacement for human decision-making
+- ❌ A guarantee of fairness or objectivity
+- ❌ An automation tool for values
+- ❌ A theory of consciousness or agency
+- ❌ A claim that AI has or should have independent authority
+
+---
+
+## ✅ What CEGS IS
+
+- ✓ A way to structure how qualification decisions are made
+- ✓ A transparency layer between AI computation and human authority
+- ✓ An auditing and revision infrastructure
+- ✓ A framework for understanding governance of AI systems
+
+---
+
+## 📚 Documentation
+
+- `construction-framework.md` — Theoretical foundations
+- `構築計算空間規格.md` — Formalization + Python implementation  
+- `構築單位呈現條件與形式化研究.md` — Motivation for Construction Tokens
+- `construction_lab/` — Runnable experiments
+
+---
+
+## ⚖️ License & Attribution
+
+This research is a collaborative investigation into qualification structures in AI systems.
+
+**Important**: Do not deploy any CEGS-based system that treats its outputs as "objective" or "bias-free". All qualification decisions must be human-reviewable and human-revisable.
 
