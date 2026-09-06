@@ -1,161 +1,350 @@
-# CEGS: Executive Summary
+# CEGS：執行摘要
 
-**TL;DR:** AI systems make qualification decisions (what can do what, what data can enter, what actions can execute). These decisions are currently hidden. CEGS makes them explicit, auditable, and revisable by humans.
+CEGS（Constrained Event Generation Space）是 Construction 研究歷程中的公開工程與實驗專案。
 
----
+它最早聚焦於「Qualification」：當一個事件、資訊單位或操作要進入特定規則空間時，哪些結構條件需要被明確表示、追蹤與重新檢查。
 
-## The Problem
+目前的 Construction 研究已進一步轉向更基礎的問題：
 
-Every AI system makes qualification decisions:
-- **RAG:** Which documents qualify to enter the context window?
-- **Authorization:** Which actions does this AI qualify to perform?
-- **Moderation:** Which content qualifies to reach users?
-- **Dialogue:** Which previous statements qualify as "established facts"?
+> 當多維事件被切片並形成歷史記錄，作為後續理解的載體時，為維持理解過程可回看、可比較、可對齊、可重新判定，最低需要保留什麼結構？
 
-Currently, these decisions are buried in:
-- Black-box embeddings
-- Implicit threshold logic  
-- Hard-coded heuristics
-- Hidden model behaviors
-
-**Result:** You can't see them. You can't audit them. You can't change them easily.
+因此，CEGS 公開 repository 與目前 Construction 理論研究不應被視為同一個完成階段。
 
 ---
 
-## CEGS Solution
+## 問題
 
-CEGS provides a framework to:
+AI 系統經常需要對事件或資訊進行結構性判定，例如：
 
-1. **Make decisions explicit**
-   - Record what qualified and why
-   - Track dependencies between decisions
-   - Log who made each judgment
+* 哪些資訊可以進入特定處理空間？
+* 哪些條件已經成立？
+* 哪些事件依賴其他事件？
+* 某個先前判定失效後，哪些後續結論需要重新檢查？
 
-2. **Make decisions auditable**
-   - Full traceability from decision back to source
-   - Understand how conclusions propagate
-   - Identify when qualification conditions fail
+這類判定可能分散在：
 
-3. **Make decisions revisable**
-   - Humans can override AI qualification
-   - Modify rules without retraining
-   - Change qualification standards in real-time
+* 模型行為
+* 相似度計算
+* 閾值與規則
+* 啟發式演算法
+* 事件表示方式
+* 應用程式邏輯
 
----
+因此，一個重要研究問題是：
 
-## What CEGS Does
+> **判定所依賴的結構，是否能以更明確、可追蹤、可重新判定的方式表示？**
 
-✅ **Handles the Mechanism Layer**
-- How to structure qualification decisions
-- How to track dependencies
-- How to propagate failures
-- How to record evidence
-
-❌ **Does NOT Handle the Values Layer**
-- What SHOULD be a qualification condition (humans decide)
-- Who has authority to set conditions (humans decide)
-- Whether a decision is fair (humans decide)
-- What to do on conflicts (humans decide)
+CEGS 的早期研究主要從 Qualification 角度處理這個問題。
 
 ---
 
-## For Different Roles
+## CEGS 的早期研究方向
 
-### LLM Engineers
-- Better RAG systems: audit which documents were included and why
-- Tool authorization: track prerequisites and permissions explicitly
-- Dialogue state: propagate failures when earlier statements break
+早期 CEGS 將 Qualification 視為一個值得獨立表示的機制問題。
 
-### AI Governance & Safety Researchers
-- Concrete framework for auditing AI decision-making
-- Separates mechanism from values — lets you focus on technical clarity
-- Maps directly onto governance requirements
+研究重點包括：
 
-### Enterprise AI Teams
-- Compliance: full audit trail for every decision
-- Control: humans can override or change rules
-- Agility: modify qualification rules without retraining
+1. 表示某個事件或資訊單位是否具備特定成立條件。
+2. 表示不同判定之間的依賴關係。
+3. 當前提失效時，檢查後續判定是否需要重新評估。
+4. 保存與判定相關的結構資訊，以便後續檢查。
 
-### Policy Makers
-- Foundation for AI oversight: where decisions happen, who made them
-- Not about automation — about transparency and human control
-- Technical layer for implementing accountability
+這些工作形成了公開 Stage 1 實驗的主要背景。
+
+需要注意的是：
+
+> 這些內容描述的是 CEGS 的歷史研究方向，不等於目前 Construction 理論的完整定義。
 
 ---
 
-## Key Innovation
+## Construction 與 CEGS 的關係
 
-**Qualification ≠ Context**
+目前研究將兩者區分如下：
 
-Most AI frameworks ask: "What is the situation here?" and make decisions based on context.
+```text
+Construction
+    ↓
+研究「理解所需的最低必要結構」
 
-CEGS asks: "Does this entity meet the structural conditions to enter this decision-making space?" — independent of context.
+MCS
+    ↓
+Construction 的最小必要結構研究對象
 
-This separation allows:
-- Universal auditing across different contexts
-- Clear responsibility chains
-- Human review of qualification criteria
+CEGS
+    ↓
+公開工程與實驗專案
+```
 
----
+因此：
 
-## Research Status
+```text
+Construction ≠ CEGS
+MCS ≠ Stage 1
+Qualification ≠ Construction 本身
+```
 
-| Aspect | Status | Evidence |
-|--------|--------|----------|
-| **Theory** | ✅ Sound | Correspondence → Symmetry → Alignment → Qualification chain verified |
-| **Formalization** | ✅ Complete | Mathematical definitions implemented in Python |
-| **Token Efficiency** | ⚠️ Promising | Stage 0: 28.4% improvement (target: 25%+) but with rendering artifacts |
-| **Semantic Quality** | ⚠️ Testing | Stage 1: in progress, manual construction tokens being evaluated |
-| **Real-World Scale** | 🔴 Unknown | Needs external validation on production systems |
-
----
-
-## Why It Matters Now
-
-1. **AI governance is moving from abstract to concrete**
-   - Regulations (EU AI Act, etc.) require audit trails
-   - Enterprises need compliance mechanisms
-   - Safety teams need to verify AI decisions
-
-2. **Qualification is already happening — implicitly**
-   - Hiding it doesn't make it safe
-   - Making it explicit enables oversight
-
-3. **This is not new philosophy**
-   - Humans have managed qualification for millennia
-   - CEGS formalizes what institutions already do
-   - Applies that to AI systems
+CEGS 是 Construction 研究歷程中的一個可觀察、可重現的工程節點。
 
 ---
 
-## Next Steps
+## 公開 Stage 1
 
-**For Technologists:**
-- Examine `construction_lab/construction_representation.py` to see working code
-- Run Stage 0/Stage 1 experiments to validate efficiency/correctness
-- Identify where qualification decisions happen in your system
+公開 repository 包含一組固定的 Stage 1 實驗資料與實作。
 
-**For Governance / Policy:**
-- Study the "Qualification Layers & Responsibility" table in README.md
-- See how this maps onto existing oversight frameworks
-- Use as technical foundation for AI accountability requirements
+Stage 1 包含：
 
-**For Researchers:**
-- Read `construction-framework.md` for theory
-- Engage with `資格論.md` for philosophical grounding
-- Help verify whether this scales to real systems
+* 75 個事件
+* 96 個問題
+* C1 與 D 兩種表示／處理條件
+* 固定的 evaluator 與 benchmark 資料
+
+其原始目標，是檢查結構化事件表示是否可能對特定判定任務產生影響。
+
+### Stage 1 的目前結論
+
+Stage 1 的歷史輸出可以重現。
+
+但後續 source-level audit 發現，部分評分並沒有完全測量原先宣稱的 Construction representation 差異。例如：
+
+* 部分 baseline 題型使用固定輸出；
+* 部分題型實際依賴問題文字或 keyword；
+* 部分 gold label 不在實作允許輸出集合中；
+* 歷史資料中的時間資訊存在不一致。
+
+因此目前不能把原先的 Stage 1 結果直接解釋為 Construction theory 已被驗證。
+
+更準確的結論是：
+
+> **Stage 1 是一個可以重現的歷史實驗，但其原始 Construction-specific inference 已因方法問題撤回。**
+
+這代表的是：
+
+```text
+Experiment
+    ↓
+Reproducible
+    ↓
+Methodological audit
+    ↓
+Original inference withdrawn
+```
+
+而不是：
+
+```text
+Experiment invalid
+    ↓
+Construction falsified
+```
+
+實驗方法的失效與研究假設的失效必須分開處理。
 
 ---
 
-## Questions?
+## 目前 Construction 的研究問題
 
-- **Technical questions:** See `construction_lab/README.md` and code
-- **Theoretical questions:** See `construction-framework.md` and `資格論.md`
-- **Practical application questions:** Open an issue with your use case
-- **中文版本:** 所有主要文件都包含中文版本
+目前研究已從「如何表示 Qualification」進一步抽象為：
+
+> **事件在被切片與保存之後，什麼結構仍然必須存在，才能讓後續理解保持可追溯性？**
+
+這使 Construction 的關注點從單一資格判定，轉向：
+
+* 歷史記錄
+* 結構保存
+* 理解回看
+* 事件比較
+* 結構對齊
+* 重新判定
+
+目前形式化方向以：
+
+```text
+Q(T, S, C, K) ∈ {0,1}
+```
+
+描述某一候選結構 `S` 是否足以使目標結構 `T` 在條件 `C`、`K` 下成立。
+
+候選 Minimum Construction Structure：
+
+```text
+S = MCS(T | I, C, K)
+```
+
+其中「最小」指的是：
+
+> **維持目標結構成立所不可再刪除的必要結構。**
+
+它不是單純的最少 Token、最少字元或最少欄位。
 
 ---
 
-**Repository:** https://github.com/asd59478126-commits/CEGS  
-**Status:** Active research | Seeking external validation | Open to collaboration  
-**License:** See LICENSE file
+## 多維事件的候選結構方向
+
+目前研究正在檢查三個候選方向：
+
+### 不變詞
+
+維持主題或對象的持續性。
+
+它關注：
+
+> 「這仍然是在談什麼？」
+
+### 邏輯鏈
+
+維持成立、依賴與條件關係。
+
+它關注：
+
+> 「這個判定為什麼能成立？」
+
+### 敘事鏈
+
+維持事件由先前狀態形成目前狀態的關係。
+
+它關注：
+
+> 「這個狀態是怎麼形成的？」
+
+目前研究傾向認為這三個方向可能具有基本結構意義，但：
+
+* 正式定義尚未完成；
+* 三者的必要性尚待證明；
+* 三者的最小保留條件尚待驗證；
+* 不應直接宣稱 MCS 已經等同於三者之和。
+
+因此，目前較準確的表示是：
+
+```text
+Invariant
+Logic Chain
+Narrative Chain
+        ↓
+候選基本結構方向
+```
+
+而不是已完成的定理。
+
+---
+
+## Qualification 的位置
+
+Qualification 仍然是 CEGS 的重要研究主題，但它應與 Construction 分開：
+
+```text
+Construction
+    ↓
+什麼結構需要被保留？
+
+Qualification
+    ↓
+這個表示是否符合某一規則空間？
+
+Application
+    ↓
+符合之後應該做什麼？
+```
+
+Construction 研究的是結構成立與保存問題。
+
+Qualification 研究的是某個表示是否滿足特定規則空間的條件。
+
+Application 則涉及實際決策與行動。
+
+三者不應被合併為同一個層級。
+
+---
+
+## 人類責任與治理
+
+CEGS 可以研究：
+
+* 判定機制如何表示；
+* 依賴如何保存；
+* 結構如何被重新檢查；
+* 證據如何與判定關聯。
+
+但 CEGS 本身不應宣稱能決定：
+
+* 哪些條件在價值上「應該」成立；
+* 誰具有最終決定權；
+* 哪種結果就是公平的；
+* 發生衝突時哪個價值必須優先。
+
+這些涉及治理、權限、價值與責任，而不是單純的結構表示問題。
+
+---
+
+## 研究狀態
+
+| 方面                                    | 目前狀態      | 說明                        |
+| ------------------------------------- | --------- | ------------------------- |
+| 公開 Stage 1 實作                         | ✅ 已存在     | 歷史實作與資料可取得                |
+| Stage 1 可重現性                          | ✅ 可重現     | 公開歷史結果可重新執行               |
+| Stage 1 原始 Construction 推論            | ❌ 已撤回     | source-level audit 發現方法問題 |
+| Qualification 研究                      | ⚠️ 研究中    | 仍是重要歷史與工程方向               |
+| Construction 理論                       | ⚠️ 研究中    | 核心問題正在由 MCS 形式化           |
+| MCS                                   | ⚠️ 候選形式化  | 最小必要結構尚待完整定義與證明           |
+| 不變詞／邏輯鏈／敘事鏈                           | ⚠️ 候選結構方向 | 必要性與關係尚待驗證                |
+| Correspondence / Symmetry / Alignment | ⚠️ 理論候選   | 不視為已完成證明                  |
+| 真實系統效益                                | 🔴 未知     | 尚缺乏充分外部驗證                 |
+
+---
+
+## 目前不能宣稱的內容
+
+本 repository 不主張：
+
+* Construction 已成為完整 AI 架構；
+* CEGS 已證明能提升 AI 正確率；
+* CEGS 已證明能降低 Token 使用量；
+* Qualification chain 已完成理論證明；
+* MCS 已完成正式證明；
+* Construction 必然適用於所有 AI 系統；
+* CEGS 可以自動決定公平、正當或正確的治理結果。
+
+這些都是需要進一步研究或實驗才能回答的問題。
+
+---
+
+## 下一步研究
+
+目前較核心的研究方向不是繼續擴張 CEGS 的產品宣稱，而是：
+
+1. 完成 Construction / MCS 的形式化。
+2. 明確定義 `K` 以及其與候選結構的關係。
+3. 檢查不變詞、邏輯鏈、敘事鏈的必要性。
+4. 建立能真正區分候選結構的實驗。
+5. 將理論命題與工程實作分離驗證。
+6. 在外部資料與真實系統上進行獨立驗證。
+
+---
+
+## 研究原則
+
+本專案保留歷史實驗與錯誤，不將研究歷程重新寫成一條看似從頭到尾都正確的故事。
+
+因此：
+
+> **可重現，不代表可證明。**
+
+> **可實作，不代表已完成理論。**
+
+> **理論候選，不代表已被驗證。**
+
+> **實驗失效，不等於研究假設被否證。**
+
+這些區分是本 repository 的重要研究紀錄。
+
+---
+
+## 一句話
+
+> **CEGS 是 Construction 研究歷程中的公開工程與實驗專案；它從 Qualification 與結構化事件表示出發，目前研究則進一步追問：當多維事件被保存為後續理解的載體時，維持理解所需的最低必要結構究竟是什麼。**
+
+---
+
+**Repository：** https://github.com/asd59478126-commits/CEGS
+**研究狀態：** 公開實驗與持續研究
+**研究立場：** 保留可重現證據，區分假設、實作、結果與結論
+**License：** 請參閱 LICENSE
