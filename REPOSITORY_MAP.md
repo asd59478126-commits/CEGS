@@ -19,7 +19,9 @@ CEGS/
 ├─ 10_CURRENT_THEORY/
 │  ├─ README.md
 │  ├─ foundation/
-│  │  └─ construction-framework.md
+│  │  ├─ construction-framework.md
+│  │  ├─ 構築（Construction）：多維資訊概念中的適應性結構與主題性不變.md
+│  │  └─ 目前研究核心第一版：內容資料正式紀錄.md
 │  ├─ formalization/
 │  │  └─ 構築 — 形式化草稿 型別優先.md
 │  └─ appendices/
@@ -37,11 +39,21 @@ CEGS/
 │
 ├─ 30_ACTIVE_RESEARCH/
 │  ├─ README.md
+│  ├─ construction/
+│  │  ├─ memory/
+│  │  │  ├─ 構築中的記憶當量：記憶連續性、當下判斷與不變詞地位.md
+│  │  │  ├─ 構築研究新增延伸：記憶當量、情緒狀態與當下判斷機制.md
+│  │  │  └─ 構築模組補充記錄：代理情緒峰值與個人情緒參照.md
+│  │  └─ exchange/
+│  │     └─ 交換之理基礎假設：資訊差異、需求與交換形成.md
 │  └─ 20260908/
 │     └─ 構築_20260908_檔案庫完整閱讀紀錄.pdf
 │
 ├─ 90_UNDATED_OR_UNRESOLVED/
 │  └─ 通用舒適ux版.md
+│
+├─ 2026.9.10/
+│  └─ 當日原始研究／版本證據，不作為現行分類的替代
 │
 └─ construction_lab/
    ├─ Stage 1 實驗與程式
@@ -75,6 +87,8 @@ CEGS/
 保存目前還在推導、比較、驗證或等待決定的內容。
 
 這裡不是「最新版資料夾」，而是「尚未結束的研究狀態」。
+
+其中 `30_ACTIVE_RESEARCH/construction/` 專門保存現行 Construction 延伸研究；`memory/` 與 `exchange/` 分別保存記憶／情緒與交換治理方向。
 
 ### Historical Experiment / 歷史實驗
 
@@ -110,6 +124,19 @@ Qualification 理論與相關聊天室收斂文件形成期。
 
 目前定位：**研究紀錄／證據**，不是理論定稿。
 
+### 2026-09-10
+
+形成新的 Construction 現行整理與延伸研究材料，包括：
+
+- 適應性結構與主題性不變的現行整理；
+- 記憶當量、記憶連續性與當下判斷量；
+- 情緒對記憶當量的影響之候選模組；
+- 代理情緒峰值與個人情緒參照；
+- 交換之理第一層基礎假設；
+- 其他同日研究／跨領域推演資料。
+
+`2026.9.10/` 整個目錄作為**原始日期紀錄與版本證據層**保留，不因後續分類而刪除或覆寫。
+
 ## 5. 目前持續研究問題
 
 - Q 的二值／三值語義。
@@ -120,6 +147,10 @@ Qualification 理論與相關聊天室收斂文件形成期。
 - Narrative Chain 的停止條件與動力學。
 - Correspondence / Symmetry / Alignment 是否構成 Qualification 的共同底層結構。
 - Construction 是否能在實際 AI 系統中產生可驗證的工程收益。
+- 記憶當量是否可形成穩定、可操作的工作性尺度。
+- 情緒峰值是否對記憶重新進入具有不可由既有權勢／重要度無損化約的作用。
+- 超峰值狀態的處理是否可以形式化。
+- 交換治理第一層的「差異 → 交流需求 → 交換需求 → 需求峰值 → 交換判定」是否能形成可計算結構。
 
 ## 6. 不可混讀的幾組文件
 
@@ -131,6 +162,8 @@ Qualification 理論與相關聊天室收斂文件形成期。
 
 `30_ACTIVE_RESEARCH/` 的研究紀錄 ≠ 已完成證明。
 
+`2026.9.10/` 的原始日期紀錄 ≠ 現行分類；它主要保存形成時間與原始版本關係。
+
 ## 7. 文件新增規則
 
 新增文件時先回答兩個問題：
@@ -140,11 +173,13 @@ Qualification 理論與相關聊天室收斂文件形成期。
 
 若答案只是「日期不同」，放入 `20_VERSIONED/YYYYMMDD/`。
 
-若答案是「目前仍在推導」，放入 `30_ACTIVE_RESEARCH/`，必要時按日期再分資料夾。
+若答案是「目前仍在推導」，放入 `30_ACTIVE_RESEARCH/`，必要時按研究主題再分資料夾。
 
 若答案是「目前採用的理論基準」，放入 `10_CURRENT_THEORY/`。
 
 若文件時間與研究地位都暫時無法判定，不要猜，先放 `90_UNDATED_OR_UNRESOLVED/`。
+
+若一份日期資料同時具有歷史證據價值與現行使用價值，可採「原始日期紀錄保留 + 現行分類副本」的雙層保存方式，不刪除原始文件。
 
 ## 8. 研究狀態聲明
 
@@ -154,12 +189,16 @@ Qualification 理論與相關聊天室收斂文件形成期。
 - Stage 1 的歷史結果可重現。
 - Stage 1 已接受 source-level / methodological audit。
 - Construction 與 Qualification 已開始明確分離。
+- 2026-09-10 的新研究資料已按「現行／研究中／原始日期紀錄」三層方式保存。
 
 **Research candidate / 理論候選**
 
 - Invariant、Logic Chain、Narrative Chain。
 - Correspondence、Symmetry、Alignment 的部分關係。
 - MCS 的形式化方向。
+- Memory Equivalent、Current Judgment Quantity。
+- Emotion → Memory Equivalent 的候選作用鏈。
+- Exchange Principle 第一層的 Difference → Need → Exchange 結構。
 
 **Unresolved / 尚待決定**
 
@@ -168,6 +207,8 @@ Qualification 理論與相關聊天室收斂文件形成期。
 - MCS 最小性的正式條件。
 - Narrative Chain 的停止條件與動力學。
 - Construction 的實際工程收益。
+- 情緒是否可被 Weight / Importance 無損化約。
+- 需求峰值及交換治理後續多維結構的正式表示。
 
 **Not claimed / 明確不主張**
 
@@ -175,6 +216,7 @@ Qualification 理論與相關聊天室收斂文件形成期。
 - Construction 必然提高模型正確率。
 - Construction 必然節省 Token。
 - MCS 已完成正式證明。
+- 情緒模組已被證明為 Construction 必要核心。
 - CEGS 能自行決定公平、正當或治理結果。
 
 ## 9. Repository hygiene
