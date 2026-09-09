@@ -1,443 +1,281 @@
-# CEGS: Constrained Event Generation Space
+# CEGS
 
-結構化事件表示、Qualification 機制與 Construction 研究的公開實驗專案。
+**Constrained Event Generation Space**
 
----
+CEGS 是一個公開研究與實驗 repository，保存「結構化事件表示 → Qualification → Construction」這條研究歷程中的工程實作、歷史資料、理論文件與目前研究紀錄。
 
-## 本專案是什麼
+> **CEGS 是研究載體，不等同於 Construction 本身。**
 
-CEGS 是一個用於研究「事件如何被表示、判定與進入特定規則空間」的研究與實作專案。
+## 目前研究定位
 
-公開 repository 主要保存的是 **CEGS Stage 1 的歷史實作、實驗資料與相關文件**。
-它不是目前全部 Construction 理論的完整實作，也不應被視為 Construction 研究的最終形式。
+研究的核心已不再只是「如何表示一個事件」，而是：
 
-目前的研究方向已進一步從早期的 Qualification / 結構化事件表示，轉向一個更基礎的問題：
+> **當多維事件不能被完整保留時，為維持後續理解、比較、對齊、追索與重新判定，最低需要保留什麼結構？**
 
-> 當事件被切片並形成歷史記錄，作為後續理解的載體時，為維持理解過程可回看、可比較、可對齊、可重新判定，最低需要保留什麼結構？
+目前「構築（Construction）」的工作性定義為：
 
-目前研究以：
+> **多維事件的最短結構展開與起點可追索性。**
+
+這裡的「最短」不是最少字元、最少 Token 或最少欄位，而是在特定目的、目標、條件與邊界下，仍足以使目標結構成立並可被後續重新理解、定位、比較或追索的必要結構。
+
+目前研究已從「唯一最小結構」進一步檢查：**同一主題可能存在多個不同但均成立的最小結構形式。** 因此，目前重點包含適應性結構與主題性不變，而不是固定唯一的最小表示。
+
+## Construction、MCS 與 CEGS
+
+| 名稱 | 定位 |
+|---|---|
+| **Construction** | 原理：研究多維事件如何以必要結構成立、保留與追索 |
+| **MCS／最小成立結構** | 形式化研究層：描述特定條件下不可再刪除的必要結構 |
+| **CEGS** | 公開研究與工程載體：保存實驗、歷史版本、研究文件與可執行內容 |
 
 ```text
-Construction
-    ↓
-Minimum Construction Structure (MCS)
-    ↓
-Construction System
+Construction ≠ CEGS
+MCS ≠ CEGS Stage 1
+Qualification ≠ Construction 本身
 ```
 
-作為主要研究路線。
+## 早期研究：Qualification 與事件表示
 
-CEGS 是這條研究歷程中的公開工程與實驗節點，而不是整個研究的同義詞。
-
----
-
-## CEGS 早期處理的問題
-
-早期 CEGS 主要探索：
-
-> 一個事件或資訊單位，在進入特定 Qualification / rule space 之前，需要具備哪些可表示、可判定與可追蹤的條件？
-
-因此，CEGS 曾將研究重心放在 Qualification：
+CEGS 的早期階段主要研究一個事件或資訊單位，在進入特定規則空間前需要具備哪些可表示、可判定與可追蹤的條件。
 
 ```text
 Input
   ↓
-Qualification Check
+Qualification
   ↓
-AI Processing / Rule Application
+Rule / Processing
   ↓
-Qualification Check
+Qualification
   ↓
 Human Review / Decision
 ```
 
-這條路線關注的是：
+這些內容仍保留在 repository 中，因為它們是目前研究形成的歷史依據，而不是需要被新理論覆蓋掉的材料。
 
-* qualification judgment 是否被明確表示
-* qualification dependency 是否能被追蹤
-* 判定是否能被重新檢查
-* 人類是否能介入與修正
+## Stage 1：公開歷史實驗
 
-這些內容仍具有研究與工程價值，但不應與目前的 Construction 理論直接等同。
+CEGS 的公開 Stage 1 是早期結構化事件表示實驗，包含固定事件、問題、答案與評估流程，用於比較不同表示方式在特定條件下的表現。
 
----
-
-## CEGS 與 Construction 的關係
-
-目前應區分三個層次：
-
-| 層次               | 內容                                          |
-| ---------------- | ------------------------------------------- |
-| **Construction** | 研究多維事件在被保留為理解載體時，最低需要什麼結構                   |
-| **MCS**          | Construction 的形式化研究對象：維持目標結構成立所需的最小必要結構     |
-| **CEGS**         | 研究歷程中的公開工程與實驗專案，包含早期 Qualification / 事件表示工作 |
+後續 source-level audit 發現，部分評分路徑沒有真正隔離表示方式的影響，例如固定輸出、問題文字／關鍵詞依賴，以及部分標籤與允許輸出集合之間的不一致。
 
 因此：
 
-```text
-Construction ≠ CEGS
-MCS ≠ Stage 1
-Qualification ≠ Construction 本身
-```
+> **Stage 1 可以作為可追溯、可重現的歷史實驗，但不能直接把原始結果當成 Construction 已被驗證。**
 
-公開 CEGS repository 應以其實際完成的工程與實驗內容為準，不代表目前全部研究成果。
-
----
-
-## 公開 Stage 1
-
-本 repository 的主要公開實驗是 **Stage 1**。
-
-Stage 1 使用固定的事件、問題與答案資料，對比較表示進行評估。
-
-公開資料包含：
-
-* 75 個事件
-* 96 個問題
-* C1 與 D 兩種表示／處理條件
-* 固定的 evaluation pipeline
-* 可重現的歷史實驗資料
-
-Stage 1 的設計目的，是探索結構化事件表示是否可能影響特定條件下的判定結果。
-
-### 重要：可重現不等於已證明
-
-Stage 1 的原始數值結果可以重現。
-
-但後續的 source-level audit 發現，部分題型的評分並未真正反映 Construction representation 的差異。例如：
-
-* 部分 baseline 題型直接使用固定輸出；
-* 部分題型主要依賴問題文字或 keyword；
-* 部分 gold label 不在實作允許的輸出集合中；
-* 公開資料與部分歷史時間資訊存在不一致。
-
-因此：
-
-> **Stage 1 的結果具有可重現性，但原始的 Construction-specific 結論不能直接視為有效的理論驗證。**
-
-這應理解為 **experiment validity 問題，而不是 Construction hypothesis 已被否證**。
-
-Stage 1 因而主要保留為一個公開、可追溯的歷史實驗節點。
-
----
+這是實驗有效性問題，不等於 Construction 假說已被否證。
 
 ## 目前 Construction 研究
 
-目前的研究問題已從早期的 Qualification 表示進一步抽象化。
-
-核心問題不是：
-
-> 如何把更多資訊塞進更短的 Token？
-
-也不是：
-
-> 如何讓模型固定遵守一套規則？
-
-而是：
-
-> 在資訊被切片、壓縮或部分保存之後，什麼結構仍然必須存在，才能讓後續理解保持可追溯性？
-
-目前使用的形式化方向是：
+目前重要的概念鏈包括：
 
 ```text
-Q(T, S, C, K) ∈ {0,1}
-```
-
-其中：
-
-* `T`：目標理解對象
-* `S`：候選結構
-* `C`：上下文
-* `K`：使判定成立所需的結構性條件
-
-候選的 Minimum Construction Structure 可表示為：
-
-```text
-S = MCS(T | I, C, K)
-```
-
-並要求：
-
-```text
-Q(T, S, C, K) = 1
-```
-
-且不存在更小的 `S' ⊊ S` 仍滿足成立條件。
-
-這裡的「最小」不是最少字元、最少 Token 或最少欄位。
-
-它指的是：
-
-> **為維持目標結構成立所不可再刪除的必要結構。**
-
----
-
-## 多維事件中的三個研究方向
-
-目前 Construction 研究正在檢查多維事件中的三種基本結構方向：
-
-### 不變詞
-
-維持主題、對象或區域性主題的持續性。
-
-它回答的是：
-
-> 「這段記錄仍然在談什麼？」
-
-### 邏輯鏈
-
-維持成立、依賴與條件關係。
-
-它回答的是：
-
-> 「這個判定為什麼能成立？」
-
-### 敘事鏈
-
-維持事件由過去狀態形成目前狀態的關係。
-
-它回答的是：
-
-> 「這個狀態是怎麼形成的？」
-
-目前研究傾向認為，多維事件中這三個方向可能具有基本地位，但其正式定義、必要性、相互關係與最小保留條件仍屬研究中的問題。
-
-因此，本 repository 不把以下命題視為已完成證明：
-
-```text
-MCS = Invariant + Logic Chain + Narrative Chain
-```
-
-它目前仍是待形式化與驗證的研究候選。
-
-同樣地：
-
-```text
-Existence
-    ≠
-Full Retention
-```
-
-某種結構在事件中存在，不代表它必須完整保留在最終表示中。
-
----
-
-## Qualification 在這個研究中的位置
-
-Qualification 仍然是 CEGS 的重要歷史研究主題，但目前不再把它當作 Construction 的完整定義。
-
-可以區分：
-
-```text
+Presence
+  ↓
+Localization
+  ↓
+Establishment
+  ↓
 Construction
-    ↓
-What structure must remain?
-
-Qualification
-    ↓
-Does this represented object satisfy a given rule space?
-
-Application
-    ↓
-What should be done with the qualified object?
+  ↓
+Difference
+  ↓
+Meaning
 ```
 
-因此，CEGS 可以研究 qualification mechanism，例如：
+重要區分：
 
-* 條件是否成立
-* 依賴是否成立
-* 狀態是否需要重新判定
-* qualification judgment 是否可追蹤
+- **Presence ≠ Establishment**：存在不代表已建立為可用結構。
+- **Establishment ≠ Truth / Endorsement**：成立於某一結構空間，不等於真實或被認可。
+- **Unknown ≠ False**：未知不可直接當作否定。
 
-但 CEGS 不應直接宣稱自己能決定：
+Construction 是在條件與邊界下，使結構能成立、保留、追索與重新判定的原理，而不是固定格式。
 
-* 哪些條件「應該」存在
-* 哪個標準「應該」優先
-* 哪個價值判斷是公平的
-* 哪個治理結果具有正當性
+## 目前研究延伸
 
-這些屬於標準、權限、價值與治理責任層次。
+### 記憶當量
 
----
+研究不只問「過去保存了多少」，而是：
+
+> **過去有多少結構實際能在現在的理解、判斷與構築中重新參與？**
+
+目前區分：
+
+```text
+Stored Information
+      ≠
+Usable Memory
+      ≠
+Memory Continuity
+```
+
+並延伸研究 Memory Invariant、當下判斷量，以及記憶重新進入當前結構的條件。
+
+### 情緒與記憶當量
+
+情緒目前是可能影響「回憶優先級 → 記憶當量 → 當下判斷」的候選模組，而不是 Construction 必須模擬人類情緒的既定結論。
+
+```text
+Emotion State
+    ↓
+Recall Priority
+    ↓
+Memory Equivalent
+    ↓
+Current Judgment
+```
+
+同時區分代理自身的情緒峰值參照與特定使用者的情緒參照；兩者均屬研究中的比較基準，不等於讀心或生物情緒模擬。
+
+### 交換
+
+目前從最基礎的差異與需求形成開始：
+
+```text
+Physical / Cognitive Difference
+        ↓
+Communication Need
+        ↓
+Exchange Need
+        ↓
+Demand Boundary / Peak
+        ↓
+Exchange
+```
+
+目前僅保存第一層原理與假設，尚未把第三方、權限、衝突、多方遞迴等高階問題當成已完成模型。
 
 ## 研究狀態
 
-目前內容應區分為四種狀態。
+### 已建立／可追溯
 
-### 已完成或可確認
+- CEGS Stage 1 歷史實作與資料
+- 歷史實驗結果及其來源記錄
+- Stage 1 的部分 source-level 審計
+- Construction 與 Qualification 的概念區分
+- Construction 的目前核心工作定義
+- 多個最小結構可以成立的研究方向
+- 研究資料的版本、日期與現行分類架構
 
-* 公開 Stage 1 實作存在
-* Stage 1 歷史資料可以取得
-* 歷史結果可以重現
-* 部分 source-level behavior 已完成審計
-* Construction 與 Qualification 已開始進行概念分離
-* MCS 已形成初步形式化方向
+### 目前理論／研究中
 
-### 理論候選
+- 適應性構築與主題性不變
+- 記憶當量與記憶連續性
+- 當下判斷量
+- 情緒對記憶當量的影響
+- 交換形成的第一層原理
+- Construction 的形式化與實驗化
 
-* 不變詞、邏輯鏈、敘事鏈作為基本結構方向
-* Correspondence / Alignment / Symmetry 的部分關係
-* `K` 與上述結構的關係
-* Construction 與歷史可追索性的形式連結
-
-### 尚待證明
-
-* MCS 是否能由目前形式化完整定義
-* `K` 的正式性質
-* 多維事件中三種結構方向的必要性
-* 最小性條件在不同 Q 性質下是否保持一致
-* Construction 是否能穩定改善實際理解、回看、比較或重新判定
-* 是否能在真實 AI 系統中形成可驗證的工程收益
-
-### 明確不主張
+### 尚未宣稱完成證明
 
 本 repository 不宣稱：
 
-* 已證明 Construction 是完整的 AI 架構
-* 已證明 Construction 必然節省 Token
-* 已證明 Construction 必然提高模型正確率
-* 已證明 Qualification chain 已經完成理論證明
-* 已證明 CEGS 能自動產生公平或客觀的治理結果
-* 已證明 AI 因此具有獨立的治理權限
-
----
+- Construction 已經成為完整 AI 架構
+- Construction 必然降低 Token 或計算成本
+- Construction 必然提高模型正確率
+- 任何單一 MCS 形式已經普遍成立
+- 所有相關結構的必要性都已完成形式證明
+- CEGS 可以自行決定公平、價值或治理正當性
+- AI 因此取得獨立治理權限
 
 ## Repository 結構
 
-主要研究文件包括：
+目前 repository 已將現行理論、版本資料、進行中研究、日期原始紀錄分層保存：
 
 ```text
-construction-framework.md
-```
+00_INDEX/
+    導航與索引
 
-Construction 早期理論框架與相關概念。
+10_CURRENT_THEORY/
+    目前採用的理論與正式研究基礎
 
-```text
-構築計算空間規格.md
-```
+20_VERSIONED/
+    歷史版本與版本化文件
 
-形式化與計算方向的研究文件。
+30_ACTIVE_RESEARCH/
+    尚在推進的研究問題與延伸模組
 
-```text
-構築單位呈現條件與形式化研究.md
-```
+90_UNDATED_OR_UNRESOLVED/
+    尚未能可靠歸入日期或版本的材料
 
-Construction Token 與表示條件的研究背景。
+2026.9.10/
+    2026-09-10 原始研究材料與日期證據層
 
-```text
 construction_lab/
+    歷史工程與實驗程式
 ```
 
-歷史實驗與相關研究資料。
+**日期資料與現行分類可以同時存在。** 日期資料保存研究發生時的原始狀態；現行分類提供現在閱讀與研究時的結構入口。兩者不是互相覆蓋的關係。
+
+完整分類原則見：
+
+- [REPOSITORY_MAP.md](./REPOSITORY_MAP.md)
+- [構築研究 MOC.md](./構築研究%20MOC.md)
+
+## 目前最重要的閱讀入口
+
+第一次閱讀建議：
 
 ```text
-資格論.md
+README
+  ↓
+10_CURRENT_THEORY
+  ↓
+目前 Construction 核心紀錄
+  ↓
+30_ACTIVE_RESEARCH
+  ↓
+20_VERSIONED / 2026.9.10 / construction_lab
 ```
 
-Qualification 相關的哲學與理論研究。
+目前 Construction 的主要入口文件：
 
----
+- [構築（Construction）：多維資訊概念中的適應性結構與主題性不變](./10_CURRENT_THEORY/foundation/%E6%A7%8B%E7%AF%89%EF%BC%88Construction%EF%BC%89%EF%BC%9A%E5%A4%9A%E7%B6%AD%E8%B3%87%E8%A8%8A%E6%A6%82%E5%BF%B5%E4%B8%AD%E7%9A%84%E9%81%A9%E6%87%89%E6%80%A7%E7%B5%90%E6%A7%8B%E8%88%87%E4%B8%BB%E9%A1%8C%E6%80%A7%E4%B8%8D%E8%AE%8A.md)
+- [目前研究核心第一版：內容資料正式紀錄](./10_CURRENT_THEORY/foundation/%E7%9B%AE%E5%89%8D%E7%A0%94%E7%A9%B6%E6%A0%B8%E5%BF%83%E7%AC%AC%E4%B8%80%E7%89%88%EF%BC%9A%E5%85%A7%E5%AE%B9%E8%B3%87%E6%96%99%E6%AD%A3%E5%BC%8F%E7%B4%80%E9%8C%84.md)
+- [construction-framework.md](./10_CURRENT_THEORY/foundation/construction-framework.md)
 
-## Stage 1 工程入口
-
-主要程式包括：
+記憶、情緒與交換的目前研究位於：
 
 ```text
-construction_lab/stage1_evaluator.py
-construction_lab/baseline_representation.py
-construction_lab/construction_representation.py
+30_ACTIVE_RESEARCH/construction/memory/
+30_ACTIVE_RESEARCH/construction/exchange/
 ```
 
-可用於檢查公開 Stage 1 的歷史實作與評估流程。
+## 工程與實驗
 
-例如：
+`construction_lab/` 保留早期 CEGS 工程與實驗資料，用於：
 
-```bash
-python construction_lab/stage1_evaluator.py
-```
+1. 提供歷史實作的可追溯來源。
+2. 檢查早期 Qualification／事件表示的實際行為。
+3. 作為後續實驗有效性與方法修正的比較基線。
 
-以及：
+新的研究結論不應在沒有對應實驗或形式化依據的情況下，直接從歷史 Stage 1 程式碼推導。
 
-```bash
-python construction_lab/baseline_representation.py
-python construction_lab/construction_representation.py
-```
+## 閱讀原則
 
-實際可執行項目應以 repository 當前版本為準。
-
----
-
-## 如何閱讀這個 Repository
-
-第一次閱讀時，建議先理解：
+CEGS 的文件會同時存在「當時怎麼做」與「現在怎麼理解」兩種資訊。這不是資料不乾淨，而是研究歷史本身的一部分。
 
 ```text
-1. README
-       ↓
-2. Construction / Qualification 的區分
-       ↓
-3. Stage 1 歷史實作
-       ↓
-4. Stage 1 審計結果
-       ↓
-5. 目前 Construction / MCS 研究
+歷史版本
+    ≠
+目前理論
+
+研究候選
+    ≠
+已證明命題
+
+實驗可重現
+    ≠
+理論有效
+
+存在
+    ≠
+必須完整保留
 ```
 
-最重要的閱讀原則是：
+CEGS 的目標不是清掉過去的研究痕跡，而是讓不同時間形成的材料能被定位、比較、追溯，並在新的研究結構下重新理解。
 
-> **不要把歷史 Stage 1 的實作內容，直接當成目前 Construction 理論的完整定義。**
+## 狀態說明
 
-本 repository 保留研究歷程，包含早期假設、實作、實驗與後續發現。
+本 README 是 repository 的**現行入口頁**。具體理論內容、研究問題與版本歷史，以對應目錄中的文件為準；README 的功能是更新「目前應如何理解與進入 repository」，而不是取代歷史文件。
 
-這些內容不需要被重新寫成一條「從一開始就已經正確」的故事。
-
----
-
-## 研究哲學
-
-本專案採取一個簡單的原則：
-
-> 能重現的結果，才進入可檢驗範圍；
-> 能證明的命題，才進入理論結論；
-> 尚未證明的內容，保持為研究問題。
-
-因此，研究中的「失敗」與「錯誤」不會被視為需要從歷史中刪除的內容。
-
-一個實驗可能：
-
-```text
-可重現
-    ↓
-但方法無法支持原本結論
-```
-
-這種情況的正確處理不是修改資料去配合理論，而是保留實驗、指出失效原因，並降低結論強度。
-
----
-
-## 一句話定位
-
-> **CEGS 是 Construction 研究歷程中的公開工程與實驗專案，用來探索結構化事件、Qualification 與可追溯表示；目前更核心的研究問題，則是找出多維事件在被保存為理解載體時所需的最低必要結構。**
-
----
-
-## License & Research Notice
-
-本 repository 是研究性專案。
-
-其中不同文件可能代表不同研究階段，因此：
-
-* 歷史實作不等於目前理論
-* 實驗結果不自動等於理論證明
-* 理論候選不應被視為已完成結論
-* qualification output 不應被視為客觀、無偏或不可修改的最終決策
-
-任何將 CEGS 應用於實際治理、授權、審核或高風險決策的系統，都應保留適當的人類覆核、責任歸屬與修正機制。
-
----
-
-## Questions & Discussion
-
-如果對研究框架、公開實驗、形式化方法或歷史結果有疑問，歡迎透過 GitHub Issues 或 Discussions 提出。
-
-本研究主要使用中文撰寫，歡迎使用中文討論。
+最後更新：2026-09-10
