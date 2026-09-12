@@ -14,21 +14,24 @@ created: 2026-09-07
 > 未修改任何 implementation、benchmark、gold answers 或既有研究紀錄。
 > 新增整理內容不取代任何既有文件；日期資料保留作為歷史與版本證據。
 
-## 統一入口
+## 三個正式入口
 
-### 人類閱讀
+1. `00_INDEX/HUMAN_QUICK_START.md` — 人類中文版
+2. `00_INDEX/HUMAN_QUICK_START.en.md` — Human English
+3. `00_INDEX/AI_READING_INDEX.md` — AI English
 
-- `00_INDEX/HUMAN_QUICK_START.md` — 中文快速入口
-- `00_INDEX/HUMAN_QUICK_START.en.md` — English quick start
+這三份文件是同一研究資料庫的三種閱讀介面，不代表三個不同理論版本。
 
-### AI 閱讀
+## 第二層索引
 
-- `00_INDEX/AI_READING_INDEX.md` — AI 分層攝取與檢索入口
-- `00_INDEX/CONTENT_CATALOG.md` — 完整跨文件內容目錄
+完成入口閱讀後，再按需要使用：
+
+- `00_INDEX/CONTENT_CATALOG.md` — 跨文件內容分類與角色目錄
+- `00_INDEX/AI_INGESTION_GUIDE.md` — AI 分層讀取與狀態判讀規則
 - `00_INDEX/RESEARCH_STATUS.md` — 時間與研究狀態
 - `REPOSITORY_MAP.md` — repository 結構與歷史分層
 
-## 閱讀順序
+## 目前理論閱讀順序
 
 1. `10_CURRENT_THEORY/foundation/構築（Construction）：多維資訊概念中的適應性結構與主題性不變.md` — 2026-09-12 更新之現行構築理論主體
 2. `10_CURRENT_THEORY/foundation/目前研究核心第一版：內容資料正式紀錄.md` — Core 第一版正式整理
@@ -54,7 +57,7 @@ created: 2026-09-07
 - `30_ACTIVE_RESEARCH/construction/memory/`：記憶當量、記憶連續性、情緒峰值與個人情緒參照
 - `30_ACTIVE_RESEARCH/construction/exchange/`：交換治理第一層研究
 
-### 新增跨層映射研究
+### 跨層映射補充
 
 - `2026.9.12/構築_狀態表示理解映射補充.md`
 - 目前方向：`Internal State → External Representation → Interpretation`
@@ -68,11 +71,8 @@ created: 2026-09-07
 
 - 新增「狀態 → 表示 → 理解」跨主體映射補充。
 - 更新現行 Construction 主體理論。
-- 新增 `00_INDEX/HUMAN_QUICK_START.md`。
-- 新增 `00_INDEX/HUMAN_QUICK_START.en.md`。
-- 新增 `00_INDEX/AI_READING_INDEX.md`。
-- 更新 `00_INDEX/CONTENT_CATALOG.md`。
-- 更新 `00_INDEX/RESEARCH_STATUS.md`。
+- 建立三個正式閱讀入口：人類中文、人類英文、AI 英文。
+- 將完整分類與 AI 讀取規則退至第二層索引。
 
 ## 目前真正擋路的
 
