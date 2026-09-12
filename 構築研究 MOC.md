@@ -16,10 +16,17 @@ created: 2026-09-07
 
 ## 統一入口
 
-1. `00_INDEX/CONTENT_CATALOG.md` — 人類與 AI 共用的內容分類與閱讀目錄
-2. `00_INDEX/AI_INGESTION_GUIDE.md` — AI 分層讀取與狀態判讀規則
-3. `00_INDEX/RESEARCH_STATUS.md` — 時間與研究狀態
-4. `REPOSITORY_MAP.md` — repository 結構與歷史分層
+### 人類閱讀
+
+- `00_INDEX/HUMAN_QUICK_START.md` — 中文快速入口
+- `00_INDEX/HUMAN_QUICK_START.en.md` — English quick start
+
+### AI 閱讀
+
+- `00_INDEX/AI_READING_INDEX.md` — AI 分層攝取與檢索入口
+- `00_INDEX/CONTENT_CATALOG.md` — 完整跨文件內容目錄
+- `00_INDEX/RESEARCH_STATUS.md` — 時間與研究狀態
+- `REPOSITORY_MAP.md` — repository 結構與歷史分層
 
 ## 閱讀順序
 
@@ -61,8 +68,10 @@ created: 2026-09-07
 
 - 新增「狀態 → 表示 → 理解」跨主體映射補充。
 - 更新現行 Construction 主體理論。
-- 新增 `00_INDEX/CONTENT_CATALOG.md`。
-- 新增 `00_INDEX/AI_INGESTION_GUIDE.md`。
+- 新增 `00_INDEX/HUMAN_QUICK_START.md`。
+- 新增 `00_INDEX/HUMAN_QUICK_START.en.md`。
+- 新增 `00_INDEX/AI_READING_INDEX.md`。
+- 更新 `00_INDEX/CONTENT_CATALOG.md`。
 - 更新 `00_INDEX/RESEARCH_STATUS.md`。
 
 ## 目前真正擋路的
