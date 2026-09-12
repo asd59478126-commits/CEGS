@@ -90,6 +90,28 @@ Meaning
 
 Construction 是在條件與邊界下，使結構能成立、保留、追索與重新判定的原理，而不是固定格式。
 
+### 2026-09-12 新增的跨層映射補充
+
+目前新增一個重要但尚未完成形式化的方向：
+
+```text
+Internal State
+      ↓
+External Representation
+      ↓
+Interpretation
+```
+
+這裡區分：
+
+- 內在狀態不等於外化表示。
+- 外化表示不等於接收者理解。
+- 表示不是透明傳輸。
+- 理解不是對原始內在狀態的直接取回。
+- 即使形式改變，仍可能維持可追索的主題性連續。
+
+此方向目前視為構築理論的跨層結構補充，不暫定為第十五個核心基元，也不宣稱完整心智或意識本體論。
+
 ## 目前研究延伸
 
 ### 記憶當量
@@ -155,6 +177,7 @@ Exchange
 - Construction 的目前核心工作定義
 - 多個最小結構可以成立的研究方向
 - 研究資料的版本、日期與現行分類架構
+- 2026-09-12 狀態／表示／理解跨層映射補充
 
 ### 目前理論／研究中
 
@@ -164,6 +187,7 @@ Exchange
 - 情緒對記憶當量的影響
 - 交換形成的第一層原理
 - Construction 的形式化與實驗化
+- 跨主體狀態 → 表示 → 理解映射
 
 ### 尚未宣稱完成證明
 
@@ -174,16 +198,17 @@ Exchange
 - Construction 必然提高模型正確率
 - 任何單一 MCS 形式已經普遍成立
 - 所有相關結構的必要性都已完成形式證明
+- 跨主體映射已完成完整形式化
 - CEGS 可以自行決定公平、價值或治理正當性
 - AI 因此取得獨立治理權限
 
 ## Repository 結構
 
-目前 repository 已將現行理論、版本資料、進行中研究、日期原始紀錄分層保存：
+目前 repository 使用「索引 → 現行理論 → 歷史版本 → 持續研究 → 日期證據 → 歷史實驗」的分層方式：
 
 ```text
 00_INDEX/
-    導航與索引
+    導航、研究狀態、內容目錄、AI 讀取規範
 
 10_CURRENT_THEORY/
     目前採用的理論與正式研究基礎
@@ -200,44 +225,43 @@ Exchange
 2026.9.10/
     2026-09-10 原始研究材料與日期證據層
 
+2026.9.12/
+    2026-09-12 新增研究補充與日期證據層
+
 construction_lab/
-    歷史工程與實驗程式
+    歷史工程與實驗程式、結果、審計與修復紀錄
 ```
 
 **日期資料與現行分類可以同時存在。** 日期資料保存研究發生時的原始狀態；現行分類提供現在閱讀與研究時的結構入口。兩者不是互相覆蓋的關係。
 
-完整分類原則見：
+## 統一閱讀入口
 
+完整分類與檔案角色：
+
+- [CONTENT_CATALOG.md](./00_INDEX/CONTENT_CATALOG.md)
+- [AI_INGESTION_GUIDE.md](./00_INDEX/AI_INGESTION_GUIDE.md)
+- [RESEARCH_STATUS.md](./00_INDEX/RESEARCH_STATUS.md)
 - [REPOSITORY_MAP.md](./REPOSITORY_MAP.md)
 - [構築研究 MOC.md](./構築研究%20MOC.md)
-
-## 目前最重要的閱讀入口
 
 第一次閱讀建議：
 
 ```text
 README
   ↓
-10_CURRENT_THEORY
+00_INDEX/RESEARCH_STATUS
   ↓
-目前 Construction 核心紀錄
+00_INDEX/CONTENT_CATALOG
+  ↓
+00_INDEX/AI_INGESTION_GUIDE
+  ↓
+構築研究 MOC
+  ↓
+10_CURRENT_THEORY
   ↓
 30_ACTIVE_RESEARCH
   ↓
-20_VERSIONED / 2026.9.10 / construction_lab
-```
-
-目前 Construction 的主要入口文件：
-
-- [構築（Construction）：多維資訊概念中的適應性結構與主題性不變](./10_CURRENT_THEORY/foundation/%E6%A7%8B%E7%AF%89%EF%BC%88Construction%EF%BC%89%EF%BC%9A%E5%A4%9A%E7%B6%AD%E8%B3%87%E8%A8%8A%E6%A6%82%E5%BF%B5%E4%B8%AD%E7%9A%84%E9%81%A9%E6%87%89%E6%80%A7%E7%B5%90%E6%A7%8B%E8%88%87%E4%B8%BB%E9%A1%8C%E6%80%A7%E4%B8%8D%E8%AE%8A.md)
-- [目前研究核心第一版：內容資料正式紀錄](./10_CURRENT_THEORY/foundation/%E7%9B%AE%E5%89%8D%E7%A0%94%E7%A9%B6%E6%A0%B8%E5%BF%83%E7%AC%AC%E4%B8%80%E7%89%88%EF%BC%9A%E5%85%A7%E5%AE%B9%E8%B3%87%E6%96%99%E6%AD%A3%E5%BC%8F%E7%B4%80%E9%8C%84.md)
-- [construction-framework.md](./10_CURRENT_THEORY/foundation/construction-framework.md)
-
-記憶、情緒與交換的目前研究位於：
-
-```text
-30_ACTIVE_RESEARCH/construction/memory/
-30_ACTIVE_RESEARCH/construction/exchange/
+20_VERSIONED / Date Evidence / construction_lab
 ```
 
 ## 工程與實驗
@@ -267,9 +291,13 @@ CEGS 的文件會同時存在「當時怎麼做」與「現在怎麼理解」兩
     ≠
 理論有效
 
-存在
+日期
     ≠
-必須完整保留
+研究地位
+
+索引
+    ≠
+理論
 ```
 
 CEGS 的目標不是清掉過去的研究痕跡，而是讓不同時間形成的材料能被定位、比較、追溯，並在新的研究結構下重新理解。
@@ -278,4 +306,4 @@ CEGS 的目標不是清掉過去的研究痕跡，而是讓不同時間形成的
 
 本 README 是 repository 的**現行入口頁**。具體理論內容、研究問題與版本歷史，以對應目錄中的文件為準；README 的功能是更新「目前應如何理解與進入 repository」，而不是取代歷史文件。
 
-最後更新：2026-09-10
+最後更新：2026-09-12
